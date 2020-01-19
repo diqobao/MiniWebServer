@@ -6,20 +6,23 @@ import java.util.*;
  */
 public class HttpTaskQueue {
     private final Queue<HttpTask> internal = new LinkedList();
-    
-    public synchronized HttpTask dequeue() {
-        if (!internal.isEmpty())
+    private int size = 0;
+
+    synchronized HttpTask dequeue() {
+        if (!internal.isEmpty()) {
+            size--;
             return internal.poll();
-        else
-            return null;
+        } else {
+            return new HttpTask();
+        }
     }
     
-    public synchronized void enqueue(HttpTask task) {
+    synchronized void enqueue(HttpTask task) {
         internal.offer(task);
+        size ++;
     }
     
     public synchronized int size() {
-        return internal.size();
+        return size();
     }
-    
 }

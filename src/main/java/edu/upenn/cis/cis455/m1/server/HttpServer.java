@@ -40,19 +40,25 @@ public class HttpServer implements ThreadManager {
     }
     
     public void start() {
+        startAllWorkers();
+        while (this.status) {
+            acceptTaskOnSocket();
+        }
+    }
+
+    private void startAllWorkers() {
         for(HttpWorker worker: workers) {
             start(worker);
         }
-        while (this.status == true) {
-            try {
-                System.out.println("Start working");
-                Socket socket = servSocket.accept();
-                HttpTask t = new HttpTask(socket);
-                queue.enqueue(t);
-            } catch (IOException e) {
-                System.out.println("Accept failed");
-            } 
+    }
 
+    private void acceptTaskOnSocket() {
+        try {
+            Socket socket = servSocket.accept();
+            HttpTask t = new HttpTask(socket);
+            queue.enqueue(t);
+        } catch (IOException e) {
+            System.out.println("Accept failed");
         }
     }
     

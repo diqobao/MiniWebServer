@@ -55,7 +55,6 @@ public class HttpIoHandler {
         outputStream.write(httpResponse.getBytes("UTF-8"));;
         outputStream.flush();
         outputStream.close();
-        System.out.println("ffff");
         return true;
     }
 }

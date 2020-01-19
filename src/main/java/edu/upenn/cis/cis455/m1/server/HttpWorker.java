@@ -13,7 +13,7 @@ import java.net.*;
  */
 public class HttpWorker extends Thread {
     static final Logger logger = LogManager.getLogger(HttpWorker.class);
-    private boolean running = false;
+    private boolean isRunning = false;
     private final HttpTaskQueue internal;
 
     public HttpWorker(HttpTaskQueue internal) {
@@ -21,38 +21,40 @@ public class HttpWorker extends Thread {
     }
 
     public void run() {
-        running = true;
-        while (running) {
+        isRunning = true;
+        while (isRunning) {
             HttpTask task = internal.dequeue();
-            if (task == null) {
-//                try {
-//                    wait();
-//                } catch (InterruptedException e) {
-//                    logger.info("wait failed");
-//                }
-            } else {
-                Socket socket = task.getSocket();
-                Request request = new HttpRequest();
-                Response response = new HttpResponse();
-                boolean persistent = true;
-                try {
-                    persistent = HttpIoHandler.sendResponse(socket, request, response);
-                } catch (IOException e) {
-                    logger.info("ioexception");
-                }
-                if(!persistent) {
-                    try {
-                        socket.close();
-                    } catch (IOException e) {
-                        logger.info("Failed to close socket");
-                    }
-                }
-            }
+            taskHandler(task);
         }
     }
 
-    public void halt() {
-        running = false;
+    public void taskHandler(HttpTask task) {
+        if(task.isEmpty) return ;
+        Socket socket = task.getSocket();
+        Request request = new HttpRequest();
+        Response response = new HttpResponse();
+        try {
+            boolean persistent = HttpIoHandler.sendResponse(socket, request, response);
+            if(!persistent) {
+                closeConnection(socket);
+            }
+        } catch (IOException e) {
+            logger.info("ioexception");
+        }
+    }
+
+    private void closeConnection(Socket socket) {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            logger.info("Failed to close socket");
+        }
+    }
+
+    void halt() {
+        isRunning = false;
         interrupt();
     }
+
+
 }
