@@ -31,13 +31,11 @@ public class HttpWorker extends Thread {
 //                    logger.info("wait failed");
 //                }
             } else {
-                System.out.println("!!@@!@!@!@!@!@!@!");
                 Socket socket = task.getSocket();
                 Request request = new HttpRequest();
                 Response response = new HttpResponse();
                 boolean persistent = true;
                 try {
-                    System.out.println("11111111");
                     persistent = HttpIoHandler.sendResponse(socket, request, response);
                 } catch (IOException e) {
                     logger.info("ioexception");

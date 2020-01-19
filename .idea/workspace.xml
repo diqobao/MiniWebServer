@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6295f63-7242-4a2f-845f-2d02833f3184" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_10.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_10_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework-1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/homework-1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579299528090</updated>
-      <workItem from="1579299532835" duration="18400000" />
+      <workItem from="1579299532835" duration="18603000" />
     </task>
     <servers />
   </component>
