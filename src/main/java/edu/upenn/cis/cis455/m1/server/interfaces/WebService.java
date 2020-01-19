@@ -109,6 +109,16 @@ public abstract class WebService {
      */
     public abstract void post(String path, Route route);
 
+    /**
+     * Handle an HTTP PUT request to the path
+     */
+    public abstract void put(String path, Route route);
+
+    /**
+     * Handle an HTTP DELETE request to the path
+     */
+    public abstract void delete(String path, Route route);
+
     ////////////////////////////////////////////
     // Server configuration
     ////////////////////////////////////////////
@@ -127,5 +137,6 @@ public abstract class WebService {
      * Set the size of the thread pool
      */
     public abstract void threadPool(int threads);
-    
+
+    public abstract void head(String path, Route route);
 }

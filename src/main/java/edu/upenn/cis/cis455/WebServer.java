@@ -18,8 +18,7 @@ public class WebServer {
         System.out.println("Launching on port " + port);
         System.out.println("File location " + dir);
         // TODO: launch your server daemon
-        ServiceFactory.up(dir, ipAddress, port, 4);
-//        WebServiceController.awaitInitialization();
-//        System.out.println("Waiting to handle requests!");
+        ServiceFactory.up(dir, ipAddress, port, 8);
+        System.out.println("Waiting to handle requests!");
     }
 }

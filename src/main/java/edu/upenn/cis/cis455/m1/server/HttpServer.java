@@ -55,11 +55,15 @@ public class HttpServer implements ThreadManager {
     private void acceptTaskOnSocket() {
         try {
             Socket socket = servSocket.accept();
-            HttpTask t = new HttpTask(socket);
-            queue.enqueue(t);
+            clientHandler(socket);
         } catch (IOException e) {
             System.out.println("Accept failed");
         }
+        }
+
+    private void clientHandler(Socket socket) {
+        HttpTask t = new HttpTask(socket);
+        queue.enqueue(t);
     }
     
     @Override

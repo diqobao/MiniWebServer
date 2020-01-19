@@ -88,39 +88,48 @@ public class ServiceFactory {
             HttpServer HServer = new HttpServer(this.port, this.dir, this.maxThread);
             HServer.start();
         }
-        
+
+        @Override
         public void get(String path, Route route) {
-            try {
-                Socket socket = new Socket(dir, port);
-                OutputStream outputStream = socket.getOutputStream();
-                // TODO: 2020/1/18 update stream to socket
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-                objectOutputStream.writeObject(route);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
 
+        @Override
         public void post(String path, Route route) {
 
         }
 
-        public void stop() {
-            
+        @Override
+        public void put(String path, Route route) {
+
         }
-        
+
+        @Override
+        public void delete(String path, Route route) {
+
+        }
+
+        @Override
+        public void head(String path, Route route) {
+
+        }
+
+        public void stop() {
+
+        }
+
         public void staticFileLocation(String directory) {
             this.dir = directory;
         }
-        
+
         public void ipAddress(String ipAddress) {
             this.ipAddress = ipAddress;
         }
-        
+
         public void port(int port) {
             this.port = port;
         }
-        
+
         public void threadPool(int threads) {
             this.maxThread = threads;
         }

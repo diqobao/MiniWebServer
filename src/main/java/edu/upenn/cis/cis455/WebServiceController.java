@@ -71,23 +71,23 @@ public class WebServiceController {
     /**
      * Handle an HTTP PUT request to the path
      */
-    /*public static void put(String path, Route route) {
+    public static void put(String path, Route route) {
         getInstance().put(path, route);
-    }*/
+    }
 
     /**
      * Handle an HTTP DELETE request to the path
      */
-    /*public static void delete(String path, Route route) {
+    public static void delete(String path, Route route) {
         getInstance().delete(path, route);
-    }*/
+    }
 
     /**
      * Handle an HTTP HEAD request to the path
      */
-    /*public static void head(String path, Route route) {
+    public static void head(String path, Route route) {
         getInstance().head(path, route);
-    }*/
+    }
 
     /**
      * Handle an HTTP OPTIONS request to the path

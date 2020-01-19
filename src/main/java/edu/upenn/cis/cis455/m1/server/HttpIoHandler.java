@@ -51,7 +51,7 @@ public class HttpIoHandler {
         MockRequestHandler httpReqHandler = new MockRequestHandler(); // TODO: 2020/1/19 replace MOCK by functional one
         httpReqHandler.handle(request, response);
         OutputStream outputStream = socket.getOutputStream();
-        String httpResponse = String.format("HTTP/1.1 %d OK\n\"Content-type: %s;\r\n\r\nHello Word", response.status(), "text/html");
+        String httpResponse = String.format("HTTP/1.1 %d OK\n%s\r\n\r\n%s", response.status(), response.getHeaders(), response.body());
         outputStream.write(httpResponse.getBytes("UTF-8"));;
         outputStream.flush();
         outputStream.close();

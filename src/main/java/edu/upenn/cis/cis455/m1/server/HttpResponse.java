@@ -6,9 +6,27 @@ import java.util.Map;
 
 public class HttpResponse extends Response {
     Map<String, String> headers;
-    HttpResponse() {}
+    HttpResponse() {
+        super();
+    }
+
+    void addHeader(String name, String value) {
+        headers.put(name, value);
+    }
+
+    void removeHeader(String name) {
+        headers.remove(name);
+    }
+
     @Override
     public String getHeaders() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for(String k: headers.keySet()) {
+            sb.append(k);
+            sb.append(": ");
+            sb.append(headers.get(k));
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
