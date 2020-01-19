@@ -104,6 +104,11 @@ public abstract class WebService {
      */
     public abstract void get(String path, Route route);
 
+    /**
+     * Handle an HTTP POST request to the path
+     */
+    public abstract void post(String path, Route route);
+
     ////////////////////////////////////////////
     // Server configuration
     ////////////////////////////////////////////

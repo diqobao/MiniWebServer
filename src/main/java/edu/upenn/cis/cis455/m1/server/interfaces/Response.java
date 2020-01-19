@@ -33,7 +33,7 @@ import java.io.UnsupportedEncodingException;
 public abstract class Response {
     protected int statusCode = 200;
     protected byte[] body;
-    protected String contentType = null;//"text/plain";
+    protected String contentType = "text/plain";
     
     public int status() {
         return statusCode;

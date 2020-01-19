@@ -27,7 +27,7 @@ public class HttpServer implements ThreadManager {
         this.queue = new HttpTaskQueue();
         
         for (int i = 0; i < maxThreads; i++) {
-            workers.add(new HttpWorker());
+            workers.add(new HttpWorker(queue));
         }
         
         try{
@@ -40,6 +40,9 @@ public class HttpServer implements ThreadManager {
     }
     
     public void start() {
+        for(HttpWorker worker: workers) {
+            start(worker);
+        }
         while (this.status == true) {
             try {
                 System.out.println("Start working");
@@ -68,14 +71,15 @@ public class HttpServer implements ThreadManager {
     @Override
     public void start(HttpWorker worker) {
         // TODO Auto-generated method stub
-        worker.run(queue);
+        Thread workerThread = new Thread(worker);
+        workerThread.start();
     }
 
     @Override
     public void done(HttpWorker worker) {
         // TODO Auto-generated method stub
         worker.halt();
-        
+
     }
 
     @Override

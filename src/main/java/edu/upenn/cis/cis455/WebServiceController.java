@@ -64,9 +64,9 @@ public class WebServiceController {
     /**
      * Handle an HTTP POST request to the path
      */
-    /*public static void post(String path, Route route) {
+    public static void post(String path, Route route) {
         getInstance().post(path, route);
-    }*/
+    }
 
     /**
      * Handle an HTTP PUT request to the path

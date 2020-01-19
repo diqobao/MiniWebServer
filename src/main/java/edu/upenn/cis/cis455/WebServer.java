@@ -10,12 +10,16 @@ public class WebServer {
         org.apache.logging.log4j.core.config.Configurator.setLevel("edu.upenn.cis.cis455", Level.DEBUG);
         
         // TODO: make sure you parse *BOTH* command line arguments properly
-        System.out.println("Launching on port " + args[0]);
-        System.out.println("File location " + args[1]);
-        
-        // TODO: launch your server daemon        
-        ServiceFactory.up(dir, ipAddress, port, 10);
-        
-        System.out.println("Waiting to handle requests!");
+//        port = Integer.parseInt(args[0]);
+//        dir = args[1];
+        port = 7878;
+        dir = "./www";
+        ipAddress = "http://127.0.0.1/";
+        System.out.println("Launching on port " + port);
+        System.out.println("File location " + dir);
+        // TODO: launch your server daemon
+        ServiceFactory.up(dir, ipAddress, port, 4);
+//        WebServiceController.awaitInitialization();
+//        System.out.println("Waiting to handle requests!");
     }
 }

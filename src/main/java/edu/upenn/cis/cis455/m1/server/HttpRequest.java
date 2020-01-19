@@ -2,6 +2,7 @@ package edu.upenn.cis.cis455.m1.server;
 import edu.upenn.cis.cis455.m1.server.interfaces.Request;
 
 import java.util.Map;
+import java.util.Set;
 
 public class HttpRequest extends Request {
         /**
@@ -21,74 +22,78 @@ public class HttpRequest extends Request {
 	private int contentLength;
 	private String currDir;
     public Map<String, String> headers;
-    
-    /**
-     * The request method (GET, POST, ...)
-     */
-    public abstract String requestMethod();
+    private boolean persistent;
 
-    /**
-     * @return The host
-     */
-    public abstract String host();  
-    
-    /**
-     * @return The user-agent
-     */
-    public abstract String userAgent();
-    
-    /**
-     * @return The server port
-     */
-    public abstract int port();
-    
-    /**
-     * @return The path
-     */
-    public abstract String pathInfo();
-    
-    /**
-     * @return The URL
-     */
-    public abstract String url();
-    
-    /**
-     * @return The URI up to the query string
-     */
-    public abstract String uri();
-    
-    /**
-     * @return The protocol name and version from the request
-     */
-    public abstract String protocol();
+    @Override
+    public String requestMethod() {
+        return method;
+    }
 
-    /**
-     * @return The MIME type of the body
-     */
-    public abstract String contentType();
-    
-    /**
-     * @return The client's IP address
-     */
-    public abstract String ip();
-    
-    /**
-     * @return The request body sent by the client
-     */
-    public abstract String body();
-    
-    /**
-     * @return The length of the body
-     */
-    public abstract int contentLength();
-    
-    /**
-     * @return Get the item from the header
-     */
-    public abstract String headers(String name);
-    
-    public abstract Set<String> headers();
-    
+    @Override
+    public String host() {
+        return host;
+    }
+
+    @Override
+    public String userAgent() {
+        return userAgent;
+    }
+
+    @Override
+    public int port() {
+        return port;
+    }
+
+    @Override
+    public String pathInfo() {
+        return pathInfo;
+    }
+
+    @Override
+    public String url() {
+        return url;
+    }
+
+    @Override
+    public String uri() {
+        return uri;
+    }
+
+    @Override
+    public String protocol() {
+        return protocol;
+    }
+
+    @Override
+    public String contentType() {
+        return contentType;
+    }
+
+    @Override
+    public String ip() {
+        return ip;
+    }
+
+    @Override
+    public String body() {
+        return body;
+    }
+
+    @Override
+    public int contentLength() {
+        return contentLength;
+    }
+
+    @Override
+    public String headers(String name) {
+        return headers.getOrDefault(name, "");
+    }
+
+    @Override
+    public Set<String> headers() {
+        return headers.keySet();
+    }
+
     /**
      * Indicates we have a persistent HTTP 1.1 connection
      */

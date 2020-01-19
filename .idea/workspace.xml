@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6295f63-7242-4a2f-845f-2d02833f3184" name="Default Changelist" comment="" />
+    <list default="true" id="d6295f63-7242-4a2f-845f-2d02833f3184" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_10.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_8_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_10_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework-1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/homework-1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,11 +27,28 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="homework-1" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1WXclFh47j4ZYv0SmGwEayEgZBF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -27,7 +60,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
@@ -44,6 +77,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="WebServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.upenn.cis.cis455.WebServer" />
+      <module name="homework-1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.upenn.cis.cis455.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WebServer" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -54,11 +107,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579299528090</updated>
-      <workItem from="1579299532835" duration="683000" />
+      <workItem from="1579299532835" duration="18400000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

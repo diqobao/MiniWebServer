@@ -1,5 +1,6 @@
 package edu.upenn.cis.cis455;
 
+import java.io.*;
 import java.net.Socket;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -85,12 +86,25 @@ public class ServiceFactory {
         
         public void start() {
             HttpServer HServer = new HttpServer(this.port, this.dir, this.maxThread);
+            HServer.start();
         }
         
         public void get(String path, Route route) {
-            
+            try {
+                Socket socket = new Socket(dir, port);
+                OutputStream outputStream = socket.getOutputStream();
+                // TODO: 2020/1/18 update stream to socket
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                objectOutputStream.writeObject(route);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        
+
+        public void post(String path, Route route) {
+
+        }
+
         public void stop() {
             
         }
