@@ -47,9 +47,9 @@ public class HttpIoHandler {
         OutputStream outputStream = socket.getOutputStream();
         String httpResponse = String.format("HTTP/1.1 %d OK\n", response.status())
                 + String.format("Content-Type: %s", response.getContentType())
-                + "\r\n\r\n"
-                + response.body();
+                + "\r\n\r\n";
         outputStream.write(httpResponse.getBytes("UTF-8"));;
+        outputStream.write(response.bodyRaw());;
         outputStream.flush();
         outputStream.close();
         return true;

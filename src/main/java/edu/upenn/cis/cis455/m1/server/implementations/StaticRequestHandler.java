@@ -6,12 +6,8 @@ import edu.upenn.cis.cis455.m1.server.interfaces.Request;
 import edu.upenn.cis.cis455.m1.server.interfaces.Response;
 import edu.upenn.cis.cis455.util.FileParser;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class StaticRequestHandler implements HttpRequestHandler {
     Path serverRoot;
@@ -22,7 +18,6 @@ public class StaticRequestHandler implements HttpRequestHandler {
     @Override
     public void handle(Request request, Response response) throws HaltException {
         String reqMethod = request.requestMethod().toUpperCase();
-        System.out.println(reqMethod);
         switch (reqMethod) {
             case "GET":
                 handleGET(request, response);
@@ -45,9 +40,15 @@ public class StaticRequestHandler implements HttpRequestHandler {
         Path uri = serverRoot.resolve(reqURI);
         uri = uri.normalize();
         String contentType = getContentType(reqURI);
-        response.body(FileParser.parseHtmlFile(uri));
-        response.status(200);
-        response.type(contentType);
+        try {
+            response.bodyRaw(FileParser.parseHtmlFile(uri));
+            response.status(200);
+        } catch (IOException e) {
+            response.status(404);
+            response.body("File not Found");
+        }finally {
+            response.type(contentType);
+        }
     }
 
     private void handlePOST(Request request, Response response) {}

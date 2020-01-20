@@ -1,8 +1,6 @@
 package edu.upenn.cis.cis455.util;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,18 +10,24 @@ public class FileParser {
         return uri.replaceAll("^/*|/*$", "");
     }
 
-    public static String parseHtmlFile(Path uri) {
-        StringBuilder content = new StringBuilder();
+    public static byte[] parseHtmlFile(Path uri) throws IOException {
+        File file = new File(uri.toString());
+        byte[] content = new byte[(int) file.length()];
+        FileInputStream inputStream = null;
         try {
-            BufferedReader in = new BufferedReader(new FileReader(uri.toString()));
-            String str;
-            while ((str = in.readLine()) != null) {
-                content.append(str);
-            }
-            in.close();
+            inputStream = new FileInputStream(file);
+            int reader;
+            while ((reader = inputStream.read(content)) != -1) { }
         } catch (IOException e) {
-            return "NO FILE ERROR";
+            throw new IOException();
+        } finally {
+            try {
+                if (inputStream != null)
+                    inputStream.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
-        return content.toString();
+        return content;
     }
 }

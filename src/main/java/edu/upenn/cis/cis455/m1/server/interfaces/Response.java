@@ -32,7 +32,7 @@ import java.io.UnsupportedEncodingException;
 
 public abstract class Response {
     protected int statusCode = 200;
-    protected byte[] body;
+    protected byte[] body = new byte[4096];
     protected String contentType = "text/plain";
     
     public int status() {
@@ -45,7 +45,7 @@ public abstract class Response {
     
     public String body() {
         try {
-            return body == null ? "" : new String(body, "UTF-8");
+            return new String(body, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
