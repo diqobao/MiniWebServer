@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class HttpResponse extends Response {
     Map<String, String> headers;
-    HttpResponse() {
+    public HttpResponse() {
         super();
     }
 

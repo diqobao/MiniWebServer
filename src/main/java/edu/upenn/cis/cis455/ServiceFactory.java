@@ -1,19 +1,18 @@
 package edu.upenn.cis.cis455;
 
-import java.io.*;
 import java.net.Socket;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import edu.upenn.cis.cis455.m1.server.HttpRequest;
+import edu.upenn.cis.cis455.m1.server.HttpResponse;
+import edu.upenn.cis.cis455.m1.server.implementations.StaticRequestHandler;
 import edu.upenn.cis.cis455.m1.server.interfaces.WebService;
 import edu.upenn.cis.cis455.m1.server.interfaces.HttpRequestHandler;
 import edu.upenn.cis.cis455.m1.server.interfaces.Request;
 import edu.upenn.cis.cis455.m1.server.interfaces.Response;
 import edu.upenn.cis.cis455.m2.server.interfaces.Session;
-import edu.upenn.cis.cis455.handlers.Filter;
 import edu.upenn.cis.cis455.handlers.Route;
 import edu.upenn.cis.cis455.m1.server.HttpServer;
 
@@ -47,21 +46,26 @@ public class ServiceFactory {
                          boolean keepAlive,
                          Map<String, String> headers,
                          Map<String, List<String>> parms) {
-        return null;
+        Request request = new HttpRequest(headers, parms, uri);
+        request.persistentConnection(keepAlive);
+        request.uri(uri);
+        request.requestMethod(headers.getOrDefault("Method", "text/plain"));
+        return  request;
     }
     
     /**
      * Gets a request handler for files (i.e., static content) or dynamic content
      */
     public static HttpRequestHandler createRequestHandlerInstance(Path serverRoot) {
-        return null;
+        return new StaticRequestHandler(serverRoot);
     }
 
     /**
      * Gets a new HTTP Response object
      */
     public static Response createResponse() {
-        return null;
+        Response response = new HttpResponse();
+        return response;
     }
 
     /**

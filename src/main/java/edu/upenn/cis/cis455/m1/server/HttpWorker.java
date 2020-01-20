@@ -16,7 +16,7 @@ public class HttpWorker extends Thread {
     private boolean isRunning = false;
     private final HttpTaskQueue internal;
 
-    public HttpWorker(HttpTaskQueue internal) {
+    HttpWorker(HttpTaskQueue internal) {
         this.internal = internal;
     }
 
@@ -28,7 +28,7 @@ public class HttpWorker extends Thread {
         }
     }
 
-    public void taskHandler(HttpTask task) {
+    private void taskHandler(HttpTask task) {
         if(task.isEmpty) return ;
         Socket socket = task.getSocket();
         Request request = new HttpRequest();

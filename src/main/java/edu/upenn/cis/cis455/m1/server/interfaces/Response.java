@@ -74,4 +74,8 @@ public abstract class Response {
     }
     
     public abstract String getHeaders();
+
+    public String getContentType() {
+        return contentType;
+    }
 }

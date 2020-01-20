@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6295f63-7242-4a2f-845f-2d02833f3184" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/implementations/StaticRequestHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/util/FileParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/ServiceFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/WebServiceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpIoHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/WebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/HttpWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/implementations/RequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/upenn/cis/cis455/m1/server/interfaces/Response.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +30,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -44,6 +48,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit3" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit3" value="junit.framework.TestCase" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -58,6 +64,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="edu.upenn.cis.cis455.util" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="junit.framework.TestCase" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -70,7 +84,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.FileParserTest.testTrimURI">
     <configuration name="WebServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.upenn.cis.cis455.WebServer" />
       <module name="homework-1" />
@@ -84,8 +98,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FileParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.upenn.cis.cis455.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.upenn.cis.cis455.util" />
+      <option name="MAIN_CLASS_NAME" value="edu.upenn.cis.cis455.util.FileParserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileParserTest.testTrimURI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="homework-1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.upenn.cis.cis455.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.upenn.cis.cis455.util" />
+      <option name="MAIN_CLASS_NAME" value="edu.upenn.cis.cis455.util.FileParserTest" />
+      <option name="METHOD_NAME" value="testTrimURI" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FileParserTest.testTrimURI" />
+        <item itemvalue="JUnit.FileParserTest" />
         <item itemvalue="Application.WebServer" />
       </list>
     </recent_temporary>
@@ -100,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579299528090</updated>
-      <workItem from="1579299532835" duration="23895000" />
+      <workItem from="1579299532835" duration="41950000" />
     </task>
     <servers />
   </component>

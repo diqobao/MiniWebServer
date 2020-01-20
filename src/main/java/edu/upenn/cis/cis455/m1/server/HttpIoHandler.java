@@ -1,29 +1,22 @@
 package edu.upenn.cis.cis455.m1.server;
 
 import java.io.*;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.CompletionStage;
 
-import javax.servlet.http.HttpServletResponse;
-
-import edu.upenn.cis.cis455.m1.server.implementations.MockRequestHandler;
 import edu.upenn.cis.cis455.m1.server.interfaces.HttpRequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static edu.upenn.cis.cis455.ServiceFactory.*;
 
-import edu.upenn.cis.cis455.ServiceFactory;
 import edu.upenn.cis.cis455.exceptions.HaltException;
 import edu.upenn.cis.cis455.m1.server.interfaces.Request;
 import edu.upenn.cis.cis455.m1.server.interfaces.Response;
 import edu.upenn.cis.cis455.util.HttpParsing;
-import org.mockito.Mock;
 
 /**
  * Handles marshalling between HTTP Requests and Responses
@@ -46,12 +39,16 @@ public class HttpIoHandler {
     public static boolean sendResponse(Socket socket, Request request, Response response) throws IOException {
         InputStream inputStream = socket.getInputStream();
         Map<String, String> headers = new HashMap<>();
-        Map<String, List<String>> parms = new HashMap<>();
-        HttpParsing.parseRequest(socket.getRemoteSocketAddress().toString(), inputStream, headers, parms);
-        MockRequestHandler httpReqHandler = new MockRequestHandler(); // TODO: 2020/1/19 replace MOCK by functional one
-        httpReqHandler.handle(request, response);
+        Map<String, List<String>> params = new HashMap<>();
+        String uri = HttpParsing.parseRequest(socket.getRemoteSocketAddress().toString(), inputStream, headers, params);
+        request = createRequest(socket, uri, true, headers, params);
+        HttpRequestHandler reqHandler = createRequestHandlerInstance(Paths.get("./www"));
+        reqHandler.handle(request, response);
         OutputStream outputStream = socket.getOutputStream();
-        String httpResponse = String.format("HTTP/1.1 %d OK\n%s\r\n\r\n%s", response.status(), response.getHeaders(), response.body());
+        String httpResponse = String.format("HTTP/1.1 %d OK\n", response.status())
+                + String.format("Content-Type: %s", response.getContentType())
+                + "\r\n\r\n"
+                + response.body();
         outputStream.write(httpResponse.getBytes("UTF-8"));;
         outputStream.flush();
         outputStream.close();

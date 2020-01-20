@@ -119,4 +119,8 @@ public abstract class Request {
     public void persistentConnection(boolean persistent) {
         this.persistent = persistent;
     }
+
+    public abstract void uri(String uri);
+
+    public abstract void requestMethod(String method);
 }
