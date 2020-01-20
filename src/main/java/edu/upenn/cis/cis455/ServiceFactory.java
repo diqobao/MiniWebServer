@@ -7,6 +7,8 @@ import java.util.Map;
 
 import edu.upenn.cis.cis455.m1.server.HttpRequest;
 import edu.upenn.cis.cis455.m1.server.HttpResponse;
+import edu.upenn.cis.cis455.m1.server.implementations.ControlRequestHandler;
+import edu.upenn.cis.cis455.m1.server.implementations.ShutdownRequestHandler;
 import edu.upenn.cis.cis455.m1.server.implementations.StaticRequestHandler;
 import edu.upenn.cis.cis455.m1.server.interfaces.WebService;
 import edu.upenn.cis.cis455.m1.server.interfaces.HttpRequestHandler;
@@ -57,6 +59,11 @@ public class ServiceFactory {
      * Gets a request handler for files (i.e., static content) or dynamic content
      */
     public static HttpRequestHandler createRequestHandlerInstance(Path serverRoot) {
+        if (serverRoot.toString().matches("/*shutdown/*")) {
+            return new ShutdownRequestHandler(serverRoot);
+        } else if (serverRoot.toString().matches("/*control/*")) {
+            return new ControlRequestHandler(serverRoot);
+        }
         return new StaticRequestHandler(serverRoot);
     }
 
