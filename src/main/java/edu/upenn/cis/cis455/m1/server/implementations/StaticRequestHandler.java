@@ -5,12 +5,16 @@ import edu.upenn.cis.cis455.m1.server.interfaces.HttpRequestHandler;
 import edu.upenn.cis.cis455.m1.server.interfaces.Request;
 import edu.upenn.cis.cis455.m1.server.interfaces.Response;
 import edu.upenn.cis.cis455.util.FileParser;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class StaticRequestHandler implements HttpRequestHandler {
     Path serverRoot;
+    final static Logger logger = LogManager.getLogger(StaticRequestHandler.class);
+
     public StaticRequestHandler(Path serverRoot) {
         this.serverRoot = serverRoot;
     }
@@ -18,6 +22,7 @@ public class StaticRequestHandler implements HttpRequestHandler {
     @Override
     public void handle(Request request, Response response) throws HaltException {
         String reqMethod = request.requestMethod().toUpperCase();
+        logger.info(String.format("Received %s Call", reqMethod));
         switch (reqMethod) {
             case "GET":
                 handleGET(request, response);

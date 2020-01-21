@@ -45,8 +45,6 @@ public class WebServiceController {
     protected WebServiceController() {}
 
     protected static WebService getInstance() {
-        // TODO: get a singletone instance of the WebService from the ServiceFactory
-        //throw new UnsupportedOperationException("Not yet implemented!");
         return ServiceFactory.getServerInstance();
     }
     
