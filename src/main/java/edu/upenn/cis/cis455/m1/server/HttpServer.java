@@ -68,26 +68,22 @@ public class HttpServer implements ThreadManager {
     
     @Override
     public HttpTaskQueue getRequestQueue() {
-        // TODO Auto-generated method stub
         return queue;
     }
 
     @Override
     public boolean isActive() {
-        // TODO Auto-generated method stub
         return status;
     }
 
     @Override
     public void start(HttpWorker worker) {
-        // TODO Auto-generated method stub
         Thread workerThread = new Thread(worker);
         workerThread.start();
     }
 
     @Override
     public void done(HttpWorker worker) {
-        // TODO Auto-generated method stub
         worker.halt();
 
     }
@@ -95,6 +91,6 @@ public class HttpServer implements ThreadManager {
     @Override
     public void error(HttpWorker worker) {
         // TODO Auto-generated method stub
-        
+
     }
 }
