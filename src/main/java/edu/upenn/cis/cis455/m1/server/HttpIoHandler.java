@@ -41,22 +41,22 @@ public class HttpIoHandler {
         Map<String, String> headers = new HashMap<>();
         Map<String, List<String>> params = new HashMap<>();
         try {
-
             String uri = HttpParsing.parseRequest(socket.getRemoteSocketAddress().toString(), inputStream, headers, params);
             request = createRequest(socket, uri, true, headers, params);
             HttpRequestHandler reqHandler = createRequestHandlerInstance(Paths.get("./www"));
             reqHandler.handle(request, response);
         } catch (HaltException e) {
             response.status(300);
+        } finally {
+            String httpResponse = String.format("HTTP/1.1 %d OK\n", response.status())
+                    + String.format("Content-Type: %s", response.getContentType())
+                    + "\r\n\r\n";
+            OutputStream outputStream = socket.getOutputStream();
+            outputStream.write(httpResponse.getBytes("UTF-8"));;
+            outputStream.write(response.bodyRaw());;
+            outputStream.flush();
+            outputStream.close();
         }
-        String httpResponse = String.format("HTTP/1.1 %d OK\n", response.status())
-                + String.format("Content-Type: %s", response.getContentType())
-                + "\r\n\r\n";
-        OutputStream outputStream = socket.getOutputStream();
-        outputStream.write(httpResponse.getBytes("UTF-8"));;
-        outputStream.write(response.bodyRaw());;
-        outputStream.flush();
-        outputStream.close();
         return true;
     }
 }
