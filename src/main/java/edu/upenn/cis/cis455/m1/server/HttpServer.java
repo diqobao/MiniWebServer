@@ -1,4 +1,6 @@
 package edu.upenn.cis.cis455.m1.server;
+import edu.upenn.cis.cis455.HandlerMatcher;
+
 import java.util.*;
 import java.net.*;
 import java.io.*;
@@ -17,7 +19,9 @@ public class HttpServer implements ThreadManager {
     private int maxThreads;
     private ServerSocket servSocket;
     private boolean status;
-    
+    private HandlerMatcher handlerMatcher;
+
+
     public HttpServer(int port, String dir, int maxThreads) {
         this.port = port;
         this.dir = dir;
@@ -25,7 +29,8 @@ public class HttpServer implements ThreadManager {
         this.status = true;
         this.workers = new ArrayList<HttpWorker>();
         this.queue = new HttpTaskQueue();
-        
+        this.handlerMatcher = new HandlerMatcher();
+
         for (int i = 0; i < maxThreads; i++) {
             workers.add(new HttpWorker(queue));
         }
@@ -65,7 +70,15 @@ public class HttpServer implements ThreadManager {
         HttpTask t = new HttpTask(socket);
         queue.enqueue(t);
     }
-    
+
+    public boolean[] getWorksStatus() {
+        boolean[] status = new boolean[maxThreads];
+        for (int i = 0; i < maxThreads; i++) {
+            status[i] = workers.get(i).getStatus();
+        }
+        return status;
+    }
+
     @Override
     public HttpTaskQueue getRequestQueue() {
         return queue;
