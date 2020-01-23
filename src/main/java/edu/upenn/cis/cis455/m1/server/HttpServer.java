@@ -18,18 +18,16 @@ public class HttpServer implements ThreadManager {
     private String dir;
     private int maxThreads;
     private ServerSocket servSocket;
-    private boolean status;
-    private HandlerMatcher handlerMatcher;
+    private boolean isActive;
 
 
     public HttpServer(int port, String dir, int maxThreads) {
         this.port = port;
         this.dir = dir;
         this.maxThreads = maxThreads;
-        this.status = true;
+        this.isActive = true;
         this.workers = new ArrayList<HttpWorker>();
         this.queue = new HttpTaskQueue();
-        this.handlerMatcher = new HandlerMatcher();
 
         for (int i = 0; i < maxThreads; i++) {
             workers.add(new HttpWorker(queue));
@@ -46,7 +44,7 @@ public class HttpServer implements ThreadManager {
     
     public void start() {
         startAllWorkers();
-        while (this.status) {
+        while (this.isActive) {
             acceptTaskOnSocket();
         }
     }
@@ -72,11 +70,11 @@ public class HttpServer implements ThreadManager {
     }
 
     public boolean[] getWorksStatus() {
-        boolean[] status = new boolean[maxThreads];
+        boolean[] isActive = new boolean[maxThreads];
         for (int i = 0; i < maxThreads; i++) {
-            status[i] = workers.get(i).getStatus();
+            isActive[i] = workers.get(i).getStatus();
         }
-        return status;
+        return isActive;
     }
 
     @Override
@@ -86,7 +84,7 @@ public class HttpServer implements ThreadManager {
 
     @Override
     public boolean isActive() {
-        return status;
+        return isActive;
     }
 
     @Override
@@ -105,5 +103,16 @@ public class HttpServer implements ThreadManager {
     public void error(HttpWorker worker) {
         // TODO Auto-generated method stub
 
+    }
+
+    public void stop() {
+        isActive = false;
+        stopAllWorkers();
+    }
+
+    private void stopAllWorkers() {
+        for(HttpWorker worker: workers) {
+            worker.halt();
+        }
     }
 }

@@ -5,9 +5,15 @@ import java.util.HashMap;
 public enum HttpMethod {
     get, post, put, patch, delete, head, trace, connect, options, before, after, afterafter, unsupported;
 
-    HashMap<String, HttpMethod> strToMethod;
+    private static HashMap<String, HttpMethod> strToMethod = new HashMap<>();
 
-    public HttpMethod convertFromStr(String methodStr) {
+    static {
+        for (HttpMethod method : values()) {
+            strToMethod.put(method.toString(), method);
+        }
+    }
+
+    public static HttpMethod convertFromStr(String methodStr) {
         if(!strToMethod.containsKey(methodStr)) {
             return null; // TODO: 2020/1/22 throw exception?
         }

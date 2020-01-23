@@ -56,5 +56,7 @@ public class HttpWorker extends Thread {
         interrupt();
     }
 
-
+    boolean getStatus() {
+        return isRunning;
+    }
 }
